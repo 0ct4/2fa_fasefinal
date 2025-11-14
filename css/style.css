@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb; /* azul */
+  --accent-600: #1e40af;
+  --success: #10b981;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 10px;
+  --max-width: 980px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, var(--bg), #eef2f7 60%);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding:24px 12px;
+}
+
+.container{
+  max-width:var(--max-width);
+  margin:20px auto;
+  padding:24px;
+}
+
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:18px;
+}
+
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.brand .logo{
+  width:44px;
+  height:44px;
+  border-radius:8px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-600));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:700;
+  box-shadow:0 6px 18px rgba(37,99,235,0.15);
+}
+
+.brand h1{font-size:18px;margin:0}
+.brand p{margin:0;font-size:13px;color:var(--muted)}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:0 8px 22px rgba(15,23,42,0.06);
+}
+
+.grid{
+  display:grid;
+  gap:16px;
+}
+
+.grid-cols-2{grid-template-columns:repeat(2,1fr)}
+.grid-cols-3{grid-template-columns:repeat(3,1fr)}
+
+/* Forms */
+.form-row{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+label{font-size:13px;color:var(--muted)}
+input[type="text"],input[type="password"],input[type="email"],input[type="tel"],textarea,select{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #e6e9ef;
+  background:transparent;
+  font-size:14px;
+}
+textarea{min-height:100px;resize:vertical}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:0;padding:10px 14px;border-radius:8px;font-weight:600}
+.btn-primary{background:var(--accent);color:white;box-shadow:0 6px 16px rgba(37,99,235,0.14)}
+.btn-primary:hover{background:var(--accent-600)}
+.btn-ghost{background:transparent;border:1px solid #e6e9ef;color:var(--muted)}
+.btn-danger{background:var(--danger);color:white}
+
+/* Small helper */
+.text-muted{color:var(--muted);font-size:13px}
+.kv{display:flex;justify-content:space-between;align-items:center}
+
+/* Alerts */
+.alert{padding:12px 14px;border-radius:8px;font-weight:600}
+.alert-success{background:rgba(16,185,129,0.12);color:var(--success);border:1px solid rgba(16,185,129,0.16)}
+.alert-danger{background:rgba(239,68,68,0.08);color:var(--danger);border:1px solid rgba(239,68,68,0.12)}
+
+/* Table */
+.table{width:100%;border-collapse:collapse;background:transparent}
+.table th,.table td{padding:10px 12px;border-bottom:1px solid #f1f3f7;text-align:left}
+.table th{font-size:13px;color:var(--muted);font-weight:600}
+.table tr:hover{background:linear-gradient(90deg, rgba(0,0,0,0.01), transparent)}
+
+/* Profile / Avatar */
+.avatar{width:56px;height:56px;border-radius:12px;background:#e6eefc;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+
+/* Footer */
+.footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+
+/* Responsive helpers */
+@media (max-width:900px){
+  .grid-cols-2{grid-template-columns:1fr}
+  .grid-cols-3{grid-template-columns:1fr}
+  .header{flex-direction:column;align-items:flex-start}
+}
+
+/* Tiny utilities */
+.mt-8{margin-top:8px}
+.mt-12{margin-top:12px}
+.mb-8{margin-bottom:8px}
+.center{text-align:center}
+
+/* 2FA specific */
+.qr{display:block;margin:12px auto;border-radius:12px;padding:10px;background:linear-gradient(180deg, #fff, #fbfdff);box-shadow:0 8px 20px rgba(15,23,42,0.04)}
+.secret-code{font-family:monospace;background:#f7fafc;padding:10px;border-radius:8px;border:1px dashed #eef2f7;display:inline-block}
+
+/* Accessibility focus */
+input:focus,button:focus,select:focus{outline:3px solid rgba(37,99,235,0.12);outline-offset:2px}
+
+/* Print-friendly */
+@media print{
+  body{background:white;padding:0}
+  .container{max-width:100%;padding:0}
+  .btn{display:none}
+}
